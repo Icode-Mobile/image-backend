@@ -19,14 +19,9 @@ const storage = multer.diskStorage({
     cb(null, 'public/uploads');
   },
   filename: function (req, file, cb) {
-    // Extração da extensão do arquivo original:
-    const extensaoArquivo = file.originalname.split('.')[1];
-
-    // Cria um código randômico que será o nome do arquivo
-    const novoNomeArquivo = 'icode-' + file.originalname.split('.')[0];
-
-    // Indica o novo nome do arquivo:
-    cb(null, `${novoNomeArquivo}.${extensaoArquivo}`);
+    const extendFile = file.originalname.split('.')[1];
+    const newNameFile = 'icode-' + file.originalname.split('.')[0];
+    cb(null, `${newNameFile}.${extendFile}`);
   },
 });
 
